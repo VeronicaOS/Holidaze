@@ -44,8 +44,3 @@ My email address:
 ```bash
 verols51029@stud.noroff.no
 ```
-
- React packages:
-<ul>
-  <li><a href="https://www.npmjs.com/package/react-calendar" target="_blank">React calendar by Wojciech Maj</a></li>
-</ul>
