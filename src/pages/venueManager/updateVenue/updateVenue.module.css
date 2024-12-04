@@ -1,0 +1,68 @@
+/* General modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it overlays other content */
+}
+
+/* Scrollable modal content */
+.modalContent {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80%; /* Limit modal height */
+    overflow-y: auto; /* Enable scrolling within the modal */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Actions styling (buttons) */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeButton,
+.submitButton,
+.cancelButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.closeButton {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.submitButton {
+    background-color: #3e8e65;
+}
+
+.submitButton:hover {
+    background-color: #2a6245;
+}
+
+.cancelButton {
+    background-color: #ddd;
+    color: #333;
+}
+
+.cancelButton:hover {
+    background-color: #bdbdbd;
+}
+
+/* Prevent page scrolling when modal is open */
+body.modal-open {
+    overflow: hidden;
+}

@@ -1,0 +1,56 @@
+.card {
+    width: 20rem; /* Set max width for the card */
+    height: 13.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white; /* Fallback background */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.imageWrapper {
+    position: relative; /* Necessary for positioning overlay content */
+    width: 100%;
+    height: 100%; /* Ensures the image fills the card */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire card */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Top and bottom alignment */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for contrast */
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    z-index: 1; /* Ensures text is above other elements */
+}
+
+.price {
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+    z-index: 1; /* Ensures text is above other elements */
+}

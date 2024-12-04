@@ -1,0 +1,261 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+/* Profile Card */
+.profileCard {
+    flex: 1;
+    background-color: #ffffff;
+    border: 3px solid #cabfb6;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30rem;
+    align-self: center;
+    padding: 5rem;
+    text-align: center;
+}
+
+.profileName {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profileAvatar {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bio {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #555555;
+    font-size: 16px;
+}
+
+.email {
+    text-align: center;
+    color: #333333;
+    font-size: 14px;
+}
+
+.email span,
+.bio span {
+    font-weight: 700;
+}
+
+/* Venues List */
+.venuesBookingsList {
+    flex: 1;
+    background-color: #f9f6f2;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.venuesSection {
+    margin: 2rem 0;
+}
+
+.venuesTitle,
+.bookingsTitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.venuesGrid,
+.bookingsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0 2rem;
+    justify-items: center;
+}
+
+.venueCard,
+.bookingCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    width: 300px;
+}
+
+.venueCard:hover,
+.bookingCard:hover {
+    transform: scale(1.02);
+}
+
+.venueImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.venueDetails,
+.bookingDetails {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bookingDetails p {
+    margin: 0;
+}
+
+.venueName {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+}
+
+.venueDescription {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.venueActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.venueActions Button {
+    font-size: 0.8rem;
+}
+
+.successMessageOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    z-index: 1000; /* Ensure it's on top of everything else */
+}
+
+.successMessage {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 20px 40px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* edit profile modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.inputGroup {
+    margin-bottom: 15px;
+}
+
+.inputGroup label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelButton {
+    background-color: #ddd;
+    color: #333;
+}
+
+.cancelButton:hover {
+    background-color: #bdbdbd;
+}
+
+.submitButton {
+    background-color: #3e8e65;
+}
+
+.submitButton:hover {
+    background-color: #2a6245;
+}
+
+.submitButton:disabled {
+    background-color: #9e938a;
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* MEDIA QUERIES MOBILE */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .profileCard {
+        width: auto;
+    }
+    .bookingCard {
+        width: auto;
+    }
+    .venuesBookingsList {
+        padding: 2rem 0;
+    }
+    .bookingsGrid,
+    .venuesGrid {
+        padding: 0;
+    }
+    .bookingsTitle,
+    .venuesTitle {
+        margin: 0 0 1rem 0;
+    }
+}

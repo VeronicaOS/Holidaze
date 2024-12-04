@@ -1,0 +1,28 @@
+.venueFeatures {
+    padding: 2rem;
+}
+
+.metaInfo {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.metaInfo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.metaInfo li {
+    margin: 10px 0;
+}
+
+.metaInfo strong {
+    margin-right: 5px;
+}
+
+/* MEDIA QUERIES MOBILE */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .venueFeatures {
+        padding: 0;
+    }
+}

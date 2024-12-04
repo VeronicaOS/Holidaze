@@ -1,0 +1,153 @@
+.createVenueContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    padding: 20px;
+}
+
+.createVenueContainer h1 {
+    margin-bottom: 3rem;
+}
+
+.formWrapper {
+    background: #f0ebe7;
+    padding: 3rem 6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 40%;
+}
+
+.heading1 {
+    font-size: 24px;
+    text-align: center;
+    color: #f68026;
+    padding-bottom: 3rem;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.metaGroup,
+.locationGroup {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #3e8e65;
+}
+
+.button:hover {
+    background-color: #2a6245;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+legend {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.locationGroup label {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #f68026;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* MEDIA QUERIES MOBILE & IPAD */
+
+@media only screen and (min-width: 0px) and (max-width: 1180px) {
+    .formWrapper {
+        padding: 20px;
+        width: auto;
+    }
+
+    .heading1 {
+        font-size: 20px;
+    }
+
+    .heading2 {
+        font-size: 16px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .input,
+    textarea {
+        font-size: 14px;
+    }
+}

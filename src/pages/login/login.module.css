@@ -1,0 +1,107 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../../assets/images/backgrounds/loginBackground.jpg")
+        no-repeat center center / cover;
+}
+
+.formWrapper {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading1,
+.heading2 {
+    font-size: 1.8rem;
+    color: #3e8e65;
+    text-align: center;
+}
+
+.heading1 {
+    margin: 0;
+}
+
+.heading2 {
+    margin: 0.5rem 0 2rem 0;
+}
+
+.inputGroup {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button {
+    background: #3e8e65;
+}
+
+.button:disabled {
+    background: #3e8e65;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.linkText {
+    color: #3e8e65;
+    text-decoration: none;
+}
+
+.errorMessageOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    z-index: 1000; /* Ensure it's on top of everything else */
+}
+
+.errorMessage {
+    background-color: white;
+    color: red;
+    padding: 20px 40px;
+    border: 1px solid #f0ebe7;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

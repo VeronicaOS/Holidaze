@@ -1,0 +1,55 @@
+.newsletterSection {
+    display: flex;
+    padding: 2.5rem 6.5%;
+    justify-content: space-around;
+    background-color: #f0ebe7;
+}
+
+.newsletterSection h2 {
+    color: #5a3a33;
+    font-size: xx-large;
+}
+
+.newsletterSection p {
+    max-width: 23rem;
+    font-size: large;
+}
+
+.newsletterSection .signup {
+    background-color: #f3f3f3;
+    padding: 50px 20px;
+    text-align: center;
+}
+.newsletterSection Button {
+    border-radius: 0 0.6rem 0.6rem 0;
+}
+
+.form {
+    margin-top: 5rem;
+}
+
+.form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    width: 50%;
+}
+
+.imageContainer {
+    max-width: 20rem;
+}
+
+.imageContainer img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* MEDIA QUERIES MOBILE */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .newsletterSection {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

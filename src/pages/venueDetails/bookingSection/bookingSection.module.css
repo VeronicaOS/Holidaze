@@ -1,0 +1,76 @@
+.bookingSection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 2rem 2rem 3.5rem 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookingGuests {
+    display: flex;
+    align-items: baseline;
+}
+
+.bookingGuests input {
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.buttonContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookButton {
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+}
+
+.bookButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.successMessage {
+    margin-top: 10px;
+    color: green;
+}
+
+.successMessage,
+.errorMessage {
+    width: 50%;
+}
+
+.occupied {
+    background-color: #ddd !important;
+    color: #333 !important;
+    pointer-events: none; /* Prevent clicks on occupied dates */
+}
+
+/* MEDIA QUERIES MOBILE */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .bookingSection {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 470px) {
+    .bookingSection {
+        background-color: white;
+        box-shadow: none;
+    }
+}
