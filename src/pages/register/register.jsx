@@ -14,7 +14,7 @@ const RegisterPage = () => {
                 email: "",
                 password: "",
                 confirmPassword: "",
-                venueManager: false, // Default to regular user
+                venueManager: false,
             },
             submitAction: async (formData) => {
                 if (formData.password !== formData.confirmPassword) {
@@ -25,7 +25,7 @@ const RegisterPage = () => {
                     name: formData.name,
                     email: formData.email,
                     password: formData.password,
-                    venueManager: formData.venueManager, // Include venue manager field
+                    venueManager: formData.venueManager,
                 };
 
                 const response = await fetch(
@@ -46,7 +46,6 @@ const RegisterPage = () => {
                     throw new Error("Registration failed. Please try again.");
                 }
 
-                // Confirm successful registration
                 const confirmed = window.confirm(
                     "Registration successful! Would you like to log in?"
                 );

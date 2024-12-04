@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./button.module.css"; // Import the CSS file for button styles
+import styles from "./button.module.css";
 
 const Button = ({
     onClick,
@@ -11,7 +11,7 @@ const Button = ({
     return (
         <button
             onClick={onClick}
-            className={`${styles.button} ${className}`} // Combine default and custom styles
+            className={`${styles.button} ${className}`}
             disabled={disabled}
             type={type}
         >

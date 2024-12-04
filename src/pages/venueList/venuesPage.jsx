@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useProfile } from "../../context/profileContext";
 import VenueCard from "../../components/cards/venuesCard/venuesCard";
-import { fetchVenues } from "../../utils/fetchVenues"; // Import the utility function
+import { fetchVenues } from "../../utils/fetchVenues";
 import styles from "./venuesPage.module.css";
 import sharedStyles from "../styles.module.css";
 import Button from "../../components/button/button";
 
 const VenuesPage = () => {
     const { profile } = useProfile();
-    const [venues, setVenues] = useState([]); // All fetched venues
-    const [visibleVenues, setVisibleVenues] = useState([]); // Venues currently displayed
+    const [venues, setVenues] = useState([]);
+    const [visibleVenues, setVisibleVenues] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [page, setPage] = useState(1); // Current page number
-    const ITEMS_PER_PAGE = 12; // Number of venues to display per load
+    const [page, setPage] = useState(1);
+    const ITEMS_PER_PAGE = 12;
 
     useEffect(() => {}, [profile]);
 
@@ -21,13 +21,12 @@ const VenuesPage = () => {
         document.title = "Holidaze - Venues Page";
     }, []);
 
-    // Fetch venues on mount
     useEffect(() => {
         const loadVenues = async () => {
             try {
-                const allVenues = await fetchVenues(); // Use the utility function
-                setVenues(allVenues); // Store all venues
-                setVisibleVenues(allVenues.slice(0, ITEMS_PER_PAGE)); // Show initial 12
+                const allVenues = await fetchVenues();
+                setVenues(allVenues);
+                setVisibleVenues(allVenues.slice(0, ITEMS_PER_PAGE));
             } catch (err) {
                 setError("Failed to load venues. Please try again later.");
             } finally {
@@ -38,7 +37,6 @@ const VenuesPage = () => {
         loadVenues();
     }, []);
 
-    // Handle "Load More" button click
     const loadMore = () => {
         const nextPage = page + 1;
         const startIndex = nextPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE;

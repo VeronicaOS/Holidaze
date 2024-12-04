@@ -10,11 +10,11 @@
 }
 
 .loggedIn {
-    color: #3e8e65; /* Color for logged-in users */
+    color: #3e8e65;
 }
 
 .loggedOut {
-    color: #333; /* Color for logged-out users */
+    color: #333;
 }
 
 .dropdown {

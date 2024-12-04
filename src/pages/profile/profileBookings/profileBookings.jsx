@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useProfile } from "../../../context/profileContext"; // Access the profile context
-import { fetchProfileBookings } from "../../../utils/fetchProfileBookings.jsx"; // Fetch bookings API function
+import { useProfile } from "../../../context/profileContext";
+import { fetchProfileBookings } from "../../../utils/fetchProfileBookings.jsx";
 import styles from "../profilePage.module.css";
 import Button from "../../../components/button/button";
 
 const BookingsSection = () => {
-    const { profile } = useProfile(); // Get profile from the context
+    const { profile } = useProfile();
     const [bookings, setBookings] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -19,8 +19,8 @@ const BookingsSection = () => {
                 return;
             }
             try {
-                const bookings = await fetchProfileBookings(profile.name); // Fetch bookings only
-                setBookings(Array.isArray(bookings) ? bookings : []); // Ensure bookings is an array
+                const bookings = await fetchProfileBookings(profile.name);
+                setBookings(Array.isArray(bookings) ? bookings : []);
             } catch (err) {
                 setError(
                     err.message || "An error occurred while fetching bookings."
@@ -35,18 +35,16 @@ const BookingsSection = () => {
     useEffect(() => {
         if (successMessage) {
             const timeout = setTimeout(() => {
-                setSuccessMessage(""); // Clear the success message after 3 seconds
+                setSuccessMessage("");
             }, 1500);
 
-            return () => clearTimeout(timeout); // Cleanup the timeout on unmount
+            return () => clearTimeout(timeout);
         }
     }, [successMessage]);
 
     const handleCancelBooking = async (bookingId) => {
         if (window.confirm("Are you sure you want to cancel this booking?")) {
             try {
-                // Implement cancelBooking logic here
-                // await cancelBooking(bookingId);
                 setBookings((prev) =>
                     prev.filter((booking) => booking.id !== bookingId)
                 );

@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY } from "../../../api/constants";
-import Calendar from "react-calendar"; // Calendar library
-import "react-calendar/dist/Calendar.css"; // Default styles for react-calendar
+import Calendar from "react-calendar"; 
+import "react-calendar/dist/Calendar.css"; 
 import styles from "./bookingSection.module.css";
 import Button from "../../../components/button/button";
 
 const BookingSection = ({ venueId, bookings = [] }) => {
-    const [selectedDates, setSelectedDates] = useState([null, null]); // Array for date range
-    const [guests, setGuests] = useState(1); // Default to 1 guest
+    const [selectedDates, setSelectedDates] = useState([null, null]); 
+    const [guests, setGuests] = useState(1); 
     const [isBooking, setIsBooking] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [disabledDates, setDisabledDates] = useState([]);
 
-    // Fetch and parse disabled dates from bookings
     useEffect(() => {
         if (bookings.length > 0) {
             const dates = bookings.flatMap((booking) => {
@@ -35,7 +34,6 @@ const BookingSection = ({ venueId, bookings = [] }) => {
         }
     }, [bookings]);
 
-    // Format a date as "YYYY-MM-DD"
     const formatDate = (date) => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -43,7 +41,6 @@ const BookingSection = ({ venueId, bookings = [] }) => {
         return `${year}-${month}-${day}`;
     };
 
-    // Update disabled dates with newly booked range
     const addBookedDatesToDisabled = (dateFrom, dateTo) => {
         const newDates = [];
         const startDate = new Date(dateFrom);
@@ -60,9 +57,8 @@ const BookingSection = ({ venueId, bookings = [] }) => {
         setDisabledDates((prevDisabled) => [...prevDisabled, ...newDates]);
     };
 
-    // Handle booking
+   
     const handleBooking = async () => {
-        // Validate inputs
         if (!selectedDates[0] || !selectedDates[1]) {
             setErrorMessage("Please select both a start and an end date.");
             return;
@@ -75,7 +71,7 @@ const BookingSection = ({ venueId, bookings = [] }) => {
 
         try {
             setIsBooking(true);
-            setErrorMessage(""); // Clear previous errors
+            setErrorMessage(""); 
 
             const token = localStorage.getItem("token");
             if (!token) {
@@ -84,8 +80,8 @@ const BookingSection = ({ venueId, bookings = [] }) => {
             }
 
             const bookingDetails = {
-                dateFrom: formatDate(selectedDates[0]), // Format as "YYYY-MM-DD"
-                dateTo: formatDate(selectedDates[1]), // Format as "YYYY-MM-DD"
+                dateFrom: formatDate(selectedDates[0]), 
+                dateTo: formatDate(selectedDates[1]), 
                 guests,
                 venueId,
             };
@@ -98,8 +94,8 @@ const BookingSection = ({ venueId, bookings = [] }) => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`, // Include the token
-                        "X-Noroff-API-Key": API_KEY, // Replace with your actual API key
+                        Authorization: `Bearer ${token}`, 
+                        "X-Noroff-API-Key": API_KEY, 
                     },
                     body: JSON.stringify(bookingDetails),
                 }
@@ -121,7 +117,6 @@ const BookingSection = ({ venueId, bookings = [] }) => {
                 `Booking successful! You can view all your bookings on your profile page`
             );
 
-            // Add newly booked dates to disabled dates
             addBookedDatesToDisabled(selectedDates[0], selectedDates[1]);
         } catch (error) {
             console.error("Error booking the venue:", error);
@@ -133,7 +128,6 @@ const BookingSection = ({ venueId, bookings = [] }) => {
         }
     };
 
-    // Check if a date is disabled
     const isDateDisabled = (date) => {
         return disabledDates.some(
             (disabledDate) =>
@@ -141,15 +135,15 @@ const BookingSection = ({ venueId, bookings = [] }) => {
         );
     };
 
-    // Apply custom styles for occupied dates
+    
     const tileClassName = ({ date }) => {
         if (isDateDisabled(date)) {
-            return styles.occupied; // Add CSS class for occupied dates
+            return styles.occupied; 
         }
         return null;
     };
 
-    // Handle date selection
+    
     const handleDateChange = (value) => {
         console.log("Raw selected dates:", value);
         setSelectedDates(value);
@@ -160,12 +154,12 @@ const BookingSection = ({ venueId, bookings = [] }) => {
             <div className={styles.calendarContainer}>
                 <h3>Select Your Dates</h3>
                 <Calendar
-                    selectRange={true} // Enable range selection
-                    onChange={handleDateChange} // Handle date changes
-                    value={selectedDates} // Bind the selected range
-                    minDate={new Date()} // Prevent past dates
-                    tileDisabled={({ date }) => isDateDisabled(date)} // Disable already booked dates
-                    tileClassName={tileClassName} // Apply styles to occupied dates
+                    selectRange={true} 
+                    onChange={handleDateChange} 
+                    value={selectedDates} 
+                    minDate={new Date()} 
+                    tileDisabled={({ date }) => isDateDisabled(date)} 
+                    tileClassName={tileClassName}
                 />
             </div>
             <div className={styles.bookingDetails}>
@@ -177,7 +171,7 @@ const BookingSection = ({ venueId, bookings = [] }) => {
                             type="number"
                             min="1"
                             value={guests}
-                            onChange={(e) => setGuests(Number(e.target.value))} // Allow dynamic input
+                            onChange={(e) => setGuests(Number(e.target.value))} 
                             className={styles.input}
                         />
                     </label>

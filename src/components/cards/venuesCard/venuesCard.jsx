@@ -8,8 +8,8 @@ const VenueCard = ({ id, title, price, imageUrl, imageAlt }) => {
             <div className={styles.card}>
                 <div className={styles.imageWrapper}>
                     <img
-                        src={imageUrl || "/default-placeholder.png"} // Fallback image if no media
-                        alt={imageAlt || "No image available"} // Fallback alt text
+                        src={imageUrl || "/default-placeholder.png"}
+                        alt={imageAlt || "No image available"}
                         className={styles.image}
                     />
                     <div className={styles.overlay}>

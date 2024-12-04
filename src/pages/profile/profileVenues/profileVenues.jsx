@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useProfile } from "../../../context/profileContext"; // Access the profile context
-import { fetchProfileVenues } from "../../../utils/fetchProfileVenues"; // Fetch venues API function
-import { fetchVenueById } from "../../../utils/fetchVenueDetails"; // Fetch venue details (for bookings)
-import ViewBookingsModal from "../../venueManager/viewBookings/viewBookings"; // Modal for viewing bookings
-import UpdateVenueModal from "../../venueManager/updateVenue/updateVenue"; // Modal for updating venues
+import { useProfile } from "../../../context/profileContext";
+import { fetchProfileVenues } from "../../../utils/fetchProfileVenues";
+import { fetchVenueById } from "../../../utils/fetchVenueDetails";
+import ViewBookingsModal from "../../venueManager/viewBookings/viewBookings";
+import UpdateVenueModal from "../../venueManager/updateVenue/updateVenue";
 import styles from "../profilePage.module.css";
 import { Link } from "react-router-dom";
 import Button from "../../../components/button/button";
 import { deleteVenue } from "../../../utils/deleteVenue";
 
 const VenuesSection = () => {
-    const { profile } = useProfile(); // Get profile from the context
+    const { profile } = useProfile();
     const [venues, setVenues] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [selectedVenue, setSelectedVenue] = useState(null); // For opening update modal
-    const [selectedBookings, setSelectedBookings] = useState([]); // Bookings for the selected venue
-    const [showBookingsModal, setShowBookingsModal] = useState(false); // Toggle bookings modal
+    const [selectedVenue, setSelectedVenue] = useState(null);
+    const [selectedBookings, setSelectedBookings] = useState([]);
+    const [showBookingsModal, setShowBookingsModal] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {
@@ -27,8 +27,8 @@ const VenuesSection = () => {
                 return;
             }
             try {
-                const venues = await fetchProfileVenues(profile.name); // Fetch venues only
-                setVenues(Array.isArray(venues) ? venues : []); // Ensure venues is an array
+                const venues = await fetchProfileVenues(profile.name);
+                setVenues(Array.isArray(venues) ? venues : []);
             } catch (err) {
                 setError(
                     err.message || "An error occurred while fetching venues."
@@ -43,24 +43,22 @@ const VenuesSection = () => {
     useEffect(() => {
         if (successMessage) {
             const timeout = setTimeout(() => {
-                setSuccessMessage(""); // Clear the success message after 3 seconds
+                setSuccessMessage("");
             }, 1500);
 
-            return () => clearTimeout(timeout); // Cleanup the timeout on unmount
+            return () => clearTimeout(timeout);
         }
     }, [successMessage]);
 
     const handleUpdateVenue = async (updatedVenue) => {
         try {
-            console.log("Venue updated:", updatedVenue);
-
             // Refetch the list of venues
             const refreshedVenues = await fetchProfileVenues(profile.name);
             setVenues(refreshedVenues);
 
             // Close the modal
             setSelectedVenue(null);
-            setSuccessMessage("Venue updated successfully!"); // Show success message
+            setSuccessMessage("Venue updated successfully!");
         } catch (err) {
             console.error("Error refreshing venues:", err);
             setError("Unable to refresh venue data.");
@@ -69,20 +67,14 @@ const VenuesSection = () => {
 
     const handleViewBookings = async (venue) => {
         try {
-            console.log("Selected venue for bookings:", venue);
-
             if (!venue?.id) {
                 throw new Error("Invalid venue ID");
             }
 
             if (venue.bookings && venue.bookings.length > 0) {
-                console.log(
-                    `Using existing bookings for venue ID: ${venue.id}`
-                );
                 setSelectedBookings(venue.bookings);
             } else {
                 const detailedVenue = await fetchVenueById(venue.id);
-                console.log("Fetched detailed venue data:", detailedVenue);
 
                 setSelectedBookings(detailedVenue.bookings || []);
             }

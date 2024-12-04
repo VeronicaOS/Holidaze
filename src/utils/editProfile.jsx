@@ -12,7 +12,7 @@ export const editProfile = async (profileName, updatedData) => {
     try {
         const payload = {
             ...updatedData,
-            avatar: updatedData.avatar || null, // Send avatar as a string or null
+            avatar: updatedData.avatar || null,
         };
 
         const response = await fetch(url, {
@@ -29,10 +29,9 @@ export const editProfile = async (profileName, updatedData) => {
         }
 
         const result = await response.json();
-        console.log("Profile updated successfully:", result.data);
-        return result.data; // Return the updated profile data
+        return result.data;
     } catch (error) {
         console.error("Error in editProfile:", error);
-        throw error; // Re-throw the error for handling in calling code
+        throw error;
     }
 };

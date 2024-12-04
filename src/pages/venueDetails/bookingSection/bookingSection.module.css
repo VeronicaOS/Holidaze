@@ -57,7 +57,7 @@
 .occupied {
     background-color: #ddd !important;
     color: #333 !important;
-    pointer-events: none; /* Prevent clicks on occupied dates */
+    pointer-events: none;
 }
 
 /* MEDIA QUERIES MOBILE */

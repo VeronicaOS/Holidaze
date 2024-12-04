@@ -11,7 +11,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    grid-template-columns: repeat(3, 1fr);
     row-gap: 5rem;
     justify-items: center;
 }
@@ -23,16 +23,13 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1180px) {
     .grid {
-        grid-template-columns: repeat(
-            2,
-            1fr
-        ); /* 2 cards per row for smaller screens */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 845px) {
     .grid {
-        grid-template-columns: 1fr; /* 1 card per row for very small screens */
+        grid-template-columns: 1fr;
     }
     .container {
         margin: auto;

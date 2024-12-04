@@ -17,14 +17,9 @@ export const fetchProfileVenues = async (profileName) => {
 
         const result = await response.json();
 
-        // Debug: Log the full response
-        console.log("API Full Response (Venues):", result);
-
-        // Return only the venues array
         return result.data?.venues || [];
     } catch (err) {
         console.error("Error fetching venues data:", err);
-        throw err; // Re-throw the error to handle in the calling code
+        throw err;
     }
 };
-

@@ -20,7 +20,6 @@ const Header = () => {
                     <Link to="/venues" className={styles.link}>
                         Venues
                     </Link>
-                    {/* Add DropdownMenu here */}
                     <ProfileMenu />
                 </div>
             </header>

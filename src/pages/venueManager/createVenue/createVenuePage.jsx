@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useProfile } from "../../../context/profileContext";
 import useFormData from "../../login/formData/formData";
 import VenueForm from "./venueForm/venueForm";
-import { BASE_URL, API_KEY } from "../../../api/constants"; // Import API key and base URL
+import { BASE_URL, API_KEY } from "../../../api/constants";
 import styles from "./createVenuePage.module.css";
 import Button from "../../../components/button/button";
 
@@ -75,8 +75,7 @@ const CreateVenuePage = () => {
                     }
 
                     const venueData = await response.json();
-                    console.log("Venue created successfully:", venueData);
-                    window.location.href = "/my-profile"; // Redirect
+                    window.location.href = "/my-profile";
                 } catch (err) {
                     console.error("Error creating venue:", err);
                 }

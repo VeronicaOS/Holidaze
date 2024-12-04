@@ -33,11 +33,7 @@ const EditProfileModal = ({ profile, onClose, onUpdate }) => {
                     : null, // Or null if not provided
             };
 
-            console.log("Updated payload:", updatedData); // Debug the payload
-
             const updatedProfile = await editProfile(profile.name, updatedData);
-
-            console.log("Profile updated successfully:", updatedProfile);
 
             onUpdate(updatedProfile); // Pass updated profile to the parent
             onClose(); // Close the modal

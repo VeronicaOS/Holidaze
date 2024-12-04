@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useProfile } from "../../context/profileContext";
-import styles from "./profilePage.module.css"; // Create a CSS module for styles
+import styles from "./profilePage.module.css";
 import sharedStyles from "../styles.module.css";
 import VenuesSection from "./profileVenues/profileVenues";
 import BookingsSection from "./profileBookings/profileBookings";
-import EditProfileModal from "./editProfile/editProfile"; // Import the EditProfileModal component
-import Button from "../../components/button/button"; // Optional: Reusable Button component
+import EditProfileModal from "./editProfile/editProfile";
+import Button from "../../components/button/button";
 
 const ProfilePage = () => {
     const { profile, fetchProfile, setProfile } = useProfile();
     const token = localStorage.getItem("token");
-    const username = localStorage.getItem("username"); // Assuming you store the username in localStorage
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false); // Modal visibility state
-    const [successMessage, setSuccessMessage] = useState(""); // Success message state
+    const username = localStorage.getItem("username");
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {
         document.title = "Holidaze - Profile Page";
@@ -21,9 +21,6 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchData = async () => {
             if (!profile || !profile.name) {
-                console.log("Fetching profile for username:", username);
-
-                // Fetch fresh data from the API
                 await fetchProfile(username, token);
             }
         };
@@ -32,14 +29,12 @@ const ProfilePage = () => {
     }, [profile, fetchProfile, username, token]);
 
     const handleProfileUpdate = (updatedProfile) => {
-        setProfile(updatedProfile); // Update the profile in context
+        setProfile(updatedProfile);
         setSuccessMessage("Profile updated successfully!");
-        setIsEditModalOpen(false); // Close the modal
+        setIsEditModalOpen(false);
 
-        // Save the updated profile to localStorage to ensure persistence
         localStorage.setItem("profile", JSON.stringify(updatedProfile));
 
-        // Hide the success message after 3 seconds
         setTimeout(() => {
             setSuccessMessage("");
         }, 3000);

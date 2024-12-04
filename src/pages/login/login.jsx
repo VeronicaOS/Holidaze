@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import useFormData from "./formData/formData";
 import LoginForm from "./loginForm/loginForm";
 import { useProfile } from "../../context/profileContext";
-import { BASE_URL, API_KEY } from "../../api/constants"; // Import API key and base URL
+import { BASE_URL, API_KEY } from "../../api/constants";
 import styles from "./login.module.css";
 
 const LoginPage = () => {
     const { fetchProfile } = useProfile();
-    const [errorMessage, setErrorMessage] = useState(""); // State for error message
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         document.title = "Holidaze - Login Page";
@@ -19,11 +19,10 @@ const LoginPage = () => {
             const url = `${BASE_URL}/auth/login`;
             const headers = {
                 "Content-Type": "application/json",
-                "X-Noroff-API-Key": API_KEY, // Correct header for API key
+                "X-Noroff-API-Key": API_KEY,
             };
 
             try {
-                // Perform login
                 const response = await fetch(url, {
                     method: "POST",
                     headers,
@@ -39,18 +38,16 @@ const LoginPage = () => {
                 const loginData = await response.json();
                 const { accessToken: token, name } = loginData.data;
 
-                // Save token and username
                 localStorage.setItem("token", token);
                 localStorage.setItem("username", name);
 
-                // Fetch full profile
                 const profileResponse = await fetch(
                     `${BASE_URL}/holidaze/profiles/${name}`,
                     {
                         method: "GET",
                         headers: {
-                            Authorization: `Bearer ${token}`, // Bearer token
-                            "X-Noroff-API-Key": API_KEY, // Correct header for API key
+                            Authorization: `Bearer ${token}`,
+                            "X-Noroff-API-Key": API_KEY,
                         },
                     }
                 );
@@ -63,19 +60,16 @@ const LoginPage = () => {
 
                 const profileData = await profileResponse.json();
 
-                // Save profile data to localStorage
                 localStorage.setItem(
                     "profile",
                     JSON.stringify(profileData.data)
                 );
 
-                // Redirect to home
                 window.location.href = "/";
             } catch (error) {
                 console.error("Error during login or fetching profile:", error);
-                setErrorMessage(error.message); // Show error message on screen
+                setErrorMessage(error.message);
 
-                // Clear error message after 3 seconds
                 setTimeout(() => {
                     setErrorMessage("");
                 }, 3000);
@@ -93,7 +87,6 @@ const LoginPage = () => {
                         isLoading={isLoading}
                     />
                 </form>
-                {/* Conditionally render the error message */}
                 {errorMessage && (
                     <div className={styles.errorMessageOverlay}>
                         <div className={styles.errorMessage}>

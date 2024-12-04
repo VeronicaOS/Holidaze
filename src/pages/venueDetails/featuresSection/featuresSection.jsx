@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./featuresSection.module.css";
 
 const FeaturesSection = ({ venue }) => {
-    const { meta } = venue || {}; // Destructure meta from venue
+    const { meta } = venue || {};
 
     return (
         <div className={styles.venueFeatures}>

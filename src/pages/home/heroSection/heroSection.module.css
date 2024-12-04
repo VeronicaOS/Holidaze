@@ -1,8 +1,8 @@
 .heroImage {
     position: relative;
     width: 100%;
-    height: 60vh; /* Adjust based on your design preference */
-    background-image: url("../../../assets/images/hero/hero-image.jpg"); /* Replace with the actual path */
+    height: 60vh;
+    background-image: url("../../../assets/images/hero/hero-image.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -12,7 +12,7 @@
     color: white;
     text-align: center;
     padding: 20px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: subtle shadow for text contrast */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .heroSection {
@@ -22,10 +22,10 @@
 }
 
 .heroSection h1 {
-    font-size: 3rem; /* Adjust for larger or smaller titles */
+    font-size: 3rem;
     font-weight: bold;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add a shadow for readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* MEDIA QUERIES MOBILE */

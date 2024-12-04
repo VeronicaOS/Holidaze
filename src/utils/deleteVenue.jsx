@@ -20,7 +20,6 @@ export const deleteVenue = async (venueId) => {
             );
         }
 
-        console.log(`Venue with ID ${venueId} deleted successfully.`);
         return true; // Indicate success
     } catch (error) {
         console.error("Error deleting venue:", error.message || error);

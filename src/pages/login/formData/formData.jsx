@@ -10,21 +10,21 @@ const useFormData = ({ initialState, submitAction }) => {
 
         setFormData((prev) => ({
             ...prev,
-            [name]: type === "checkbox" ? checked : value, // Handle checkboxes as booleans
+            [name]: type === "checkbox" ? checked : value,
         }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(""); // Clear any previous errors
-        setIsLoading(true); // Show loading state
+        setError("");
+        setIsLoading(true);
 
         try {
             await submitAction(formData);
         } catch (err) {
             setError(err.message || "An error occurred during submission.");
         } finally {
-            setIsLoading(false); // Stop loading state
+            setIsLoading(false);
         }
     };
 

@@ -7,39 +7,36 @@
 }
 
 .sectionTitle {
-    font-size: 2rem; /* Default font size */
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
 .cardsContainer {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(200px, 1fr)
-    ); /* Responsive grid */
-    gap: 20px; /* Space between cards */
-    width: 100%; /* Ensure container spans the full width */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
     justify-items: center;
 }
 
 /* MEDIA QUERIES MOBILE */
 @media only screen and (min-width: 0px) and (max-width: 767px) {
     .sectionTitle {
-        font-size: 1.5rem; /* Smaller font size for smaller screens */
+        font-size: 1.5rem;
     }
 
     .cardsContainer {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .sectionTitle {
-        font-size: 1.2rem; /* Adjust font size further for very small screens */
+        font-size: 1.2rem;
     }
 
     .cardsContainer {
-        gap: 10px; /* Less space between cards */
+        gap: 10px;
     }
 }

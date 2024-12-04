@@ -5,26 +5,23 @@ import { handleLogout } from "../../utils/logout";
 
 const ProfileMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { profile, setProfile } = useProfile(); // Access profile data from context
-    const menuRef = useRef(null); // Reference to the dropdown container
+    const { profile, setProfile } = useProfile();
+    const menuRef = useRef(null);
 
     const toggleDropdown = () => {
         setIsOpen((prev) => !prev);
     };
 
     const handleClickOutside = (event) => {
-        // Close menu if the click is outside the dropdown
         if (menuRef.current && !menuRef.current.contains(event.target)) {
             setIsOpen(false);
         }
     };
 
     useEffect(() => {
-        // Add event listener to detect outside clicks
         document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
-            // Clean up event listener
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
@@ -76,7 +73,7 @@ const ProfileMenu = () => {
             {/* User icon toggles dropdown */}
             <i
                 className={`${styles.userIcon} fa fa-user-circle ${
-                    profile ? styles.loggedIn : styles.loggedOut // Apply conditional styling
+                    profile ? styles.loggedIn : styles.loggedOut
                 }`}
                 onClick={toggleDropdown}
             ></i>

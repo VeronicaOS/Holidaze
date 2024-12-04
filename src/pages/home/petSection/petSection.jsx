@@ -6,7 +6,6 @@ import styles from "./petSection.module.css";
 import sharedStyles from "../../styles.module.css";
 
 const PetSection = () => {
-    // Mock data for identical cards
     const mockCardData = {
         title: "Pet-Friendly Destinations",
         description: "Explore the world with your furry friends! 🌎✈️",
@@ -14,7 +13,6 @@ const PetSection = () => {
         profileImage: profileImage,
     };
 
-    // Array to render 4 identical cards
     const cards = Array(4).fill(mockCardData);
 
     return (

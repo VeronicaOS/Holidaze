@@ -26,9 +26,9 @@ export const updateVenue = async (venueId, updatedData) => {
 
         const result = await response.json();
         console.log("Venue updated successfully:", result.data);
-        return result.data; // Return the updated venue data
+        return result.data; 
     } catch (error) {
         console.error("Error in updateVenue:", error);
-        throw error; // Re-throw the error to handle in calling code
+        throw error; 
     }
 };

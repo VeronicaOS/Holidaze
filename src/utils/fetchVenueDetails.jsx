@@ -16,12 +16,9 @@ export const fetchVenueById = async (id) => {
         }
         const data = await response.json();
 
-        // Log the full response to inspect the data
-        console.log("API Response:", data);
-
-        return data.data; // Return venue data
+        return data.data;
     } catch (err) {
         console.error("Error fetching venue:", err);
-        throw err; // Re-throw error for handling in calling code
+        throw err;
     }
 };

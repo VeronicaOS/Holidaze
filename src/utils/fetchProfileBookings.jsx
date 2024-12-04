@@ -17,13 +17,9 @@ export const fetchProfileBookings = async (profileName) => {
 
         const result = await response.json();
 
-        // Debug: Log the full response
-        console.log("API Full Response (bookings):", result);
-
-        // Return only the bookings array
         return result.data?.bookings || [];
     } catch (err) {
         console.error("Error fetching bookings data:", err);
-        throw err; // Re-throw the error to handle in the calling code
+        throw err;
     }
 };

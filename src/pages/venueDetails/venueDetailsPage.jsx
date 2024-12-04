@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import DetailsSection from "./detailsSection/detailsSection";
 import BookingSection from "./bookingSection/bookingSection";
 import sharedStyles from "../styles.module.css";
-import { fetchVenueById } from "../../utils/fetchVenueDetails"; // Import the new function
+import { fetchVenueById } from "../../utils/fetchVenueDetails";
 
 const VenueDetailsPage = () => {
-    const { profile } = useProfile(); // Access the profile from ProfileContext
-    const { id } = useParams(); // Get the venue ID from the URL
+    const { profile } = useProfile();
+    const { id } = useParams();
     const [venue, setVenue] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -22,8 +22,7 @@ const VenueDetailsPage = () => {
         const fetchVenue = async () => {
             try {
                 const venueData = await fetchVenueById(id);
-                console.log("Fetched venue data:", venueData); // Log venue data for debugging
-                setVenue(venueData); // Store venue data
+                setVenue(venueData);
             } catch (err) {
                 console.error("Error fetching venue:", err);
                 setError("Could not load venue details");
@@ -43,7 +42,6 @@ const VenueDetailsPage = () => {
         return <p>{error}</p>;
     }
 
-    // Safely extract bookings from venue data or default to an empty array
     const bookings = venue?.bookings || [];
 
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./viewBookings.module.css"; // Add a CSS file for modal styles
+import styles from "./viewBookings.module.css";
 import Button from "../../../components/button/button";
 
 const ViewBookingsModal = ({ bookings, onClose }) => {

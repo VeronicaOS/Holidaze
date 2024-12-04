@@ -5,15 +5,15 @@
     color: white;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease; /* Smooth transition for the effect */
-    border-radius: 0.6rem; /* Round only the right side */
+    transition: all 0.2s ease;
+    border-radius: 0.6rem;
 }
 
 .button:hover {
-    background-color: #412b25; /* Darker shade on hover */
+    background-color: #412b25;
 }
 
 .button:disabled {
-    background-color: #b0a09a; /* Disabled state */
+    background-color: #b0a09a;
     cursor: not-allowed;
 }

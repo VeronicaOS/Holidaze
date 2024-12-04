@@ -9,7 +9,7 @@ const HeroSection = () => {
             <div className={sharedStyles.wrapper}>
                 <div className={styles.heroSection}>
                     <h1>Your perfect stay just a click away</h1>
-                    <SearchBar /> {/* Include the SearchBar component */}
+                    <SearchBar />
                 </div>
             </div>
         </section>

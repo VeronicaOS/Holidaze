@@ -31,12 +31,12 @@ const UpdateVenueModal = ({ venue, onClose, onUpdate }) => {
 
         setFormData((prev) => {
             if (type === "checkbox") {
-                return { ...prev, [name]: checked }; // Handle checkboxes
+                return { ...prev, [name]: checked };
             }
             if (type === "number") {
-                return { ...prev, [name]: value ? parseInt(value, 10) : "" }; // Parse numbers
+                return { ...prev, [name]: value ? parseInt(value, 10) : "" };
             }
-            return { ...prev, [name]: value }; // Handle other inputs
+            return { ...prev, [name]: value };
         });
     };
 
@@ -47,7 +47,6 @@ const UpdateVenueModal = ({ venue, onClose, onUpdate }) => {
             setIsUpdating(true);
             setError(null);
 
-            // Prepare the payload
             const updatedData = {
                 name: formData.name,
                 description: formData.description,
@@ -76,14 +75,10 @@ const UpdateVenueModal = ({ venue, onClose, onUpdate }) => {
                 },
             };
 
-            console.log("Updated payload:", updatedData); // Debug the payload
-
             const updatedVenue = await updateVenue(venue.id, updatedData);
 
-            console.log("Venue updated successfully:", updatedVenue);
-
-            onUpdate(updatedVenue); // Update the venue list in the parent component
-            onClose(); // Close the modal
+            onUpdate(updatedVenue);
+            onClose();
         } catch (err) {
             console.error("Error updating venue:", err.message || err);
             setError(err.message || "Failed to update venue.");

@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchVenues } from "../../utils/fetchVenues"; // Ensure this fetch function works
+import { fetchVenues } from "../../utils/fetchVenues";
 import styles from "./searchbar.module.css";
 import Button from "../button/button";
 
 const SearchBar = () => {
-    const [searchQuery, setSearchQuery] = useState(""); // State for the search query
-    const [searchResults, setSearchResults] = useState([]); // State for search results
-    const [allVenues, setAllVenues] = useState([]); // State for all venues
-    const [selectedVenue, setSelectedVenue] = useState(null); // State for the selected venue
-    const navigate = useNavigate(); // For navigation to detail page
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const [allVenues, setAllVenues] = useState([]);
+    const [selectedVenue, setSelectedVenue] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch all venues when the component mounts
         const loadVenues = async () => {
             try {
                 const venues = await fetchVenues();
                 setAllVenues(venues);
-                console.log("Fetched all venues:", venues); // Debugging
-                console.log(
-                    "Venue names:",
-                    venues.map((venue) => venue.name)
-                ); // Debugging
             } catch (error) {
                 console.error("Error loading venues:", error);
             }
@@ -30,36 +24,31 @@ const SearchBar = () => {
         loadVenues();
     }, []);
 
-    // Handle input changes and filter venues
     const handleInputChange = (e) => {
-        const inputValue = e.target.value; // Do not trim or normalize here
+        const inputValue = e.target.value;
         setSearchQuery(inputValue);
 
         if (inputValue.trim()) {
-            // Normalize only for filtering
             const matches = allVenues.filter((venue) =>
                 venue.name
                     ?.toLowerCase()
                     .includes(inputValue.trim().toLowerCase())
             );
-            console.log("Matches for query:", matches); // Debugging
-            setSearchResults(matches); // Filter venues by name
+            setSearchResults(matches);
         } else {
-            setSearchResults([]); // Clear results if input is empty
+            setSearchResults([]);
         }
     };
 
-    // Handle selecting a venue from the list
     const handleVenueClick = (venue) => {
-        setSearchQuery(venue.name); // Auto-fill the search bar
-        setSelectedVenue(venue); // Save the selected venue
-        setSearchResults([]); // Clear search results after selection
+        setSearchQuery(venue.name);
+        setSelectedVenue(venue);
+        setSearchResults([]);
     };
 
-    // Handle search button click
     const handleSearch = () => {
         if (selectedVenue) {
-            navigate(`/venues/${selectedVenue.id}`); // Navigate to the selected venue's detail page
+            navigate(`/venues/${selectedVenue.id}`);
         } else {
             alert("Please select a venue from the list or type its full name.");
         }

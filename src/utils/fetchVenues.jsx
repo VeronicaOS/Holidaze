@@ -21,9 +21,8 @@ export const fetchVenues = async () => {
             }
 
             const data = await response.json();
-            venues.push(...data.data); // Merge current page data into the venues array
+            venues.push(...data.data);
 
-            // Check if there's another page
             hasNextPage = data.meta?.isLastPage === false;
             currentPage++;
         } catch (error) {
