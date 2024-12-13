@@ -1,46 +1,65 @@
-# Project Exam 2 - Holidaze
- <img width="1433" alt="Screenshot 2024-12-04 at 21 57 56" src="https://github.com/user-attachments/assets/34978751-2595-43d3-b3bc-ea089c021a2a">
+# Project-Exam-2
+
+<img width="1070" alt="Holidaze" src="https://github.com/user-attachments/assets/f1c5ea31-3312-42ef-a039-561103fa4a72" />
+
+# Holidaze
+
+For this project exam I was tasked to take the skills learned over the last two years and take on an extensive project where the finished product should reflect my general development capabilities, in addition to visual and technical skills.
+
+## Description
+
+This was the last project exam at Noroff and I was tasked to make a booking site. I started off with the design in Figma and then I made the site using React and CSS modules.
+
+## Brief
+
+A newly launched accommodation booking site called Holidaze has approached you to develop a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end accommodation booking application.
+
+There are two aspects to this brief: the customer-facing side of the website where users can book holidays at a venue, and an admin-facing side of the website where users can register and manage venues and bookings at those venues.
 
 
- ## :beginner: About
- For our second project exam, we were tasked with building a booking site called Holidaze, incorporating all the skills we've learned so far. The platform allows both registered and unregistered users to search for and view venues, as well as explore detailed information about each venue. Registered users can choose to use the site as customers or opt to become venue managers. Venue managers have the ability to create and update their venues, view bookings for their properties, and manage them efficiently. Additionally, users can view and delete their own bookings and update their profile information, ensuring a personalized and user-friendly experience. 
- 
- You'll find the following pages:
- <ul>
-  <li>Index</li>
-  <li>Venues</li>
-  <li>Venue details</li>
-   <li>Profile</li>
-  <li>Create Venue</li>
- </ul>
+### Site architecture
+- Homepage
+- Login page
+- Register page
+- Profile page
+- Single venue (details) page
+- List of venues page
+- Create venue page
+
 
 ## Built With
-
-- HTML
-- CSS
+- CSS modules
 - React
 - (Figma)
 
- ## :zap: Getting stared
-To run my page follow these steps:
+## Getting Started
 
-<ol>
- <strong><li>Clone the repo:</li></strong>
- <pre>git clone git@github.com:mar-ols/holidaze.git</pre>
- <strong><li>Install the dependencies: </li></strong>
- <pre>npm install</pre>
-</ol>
+### Installing
 
-### Running:
+1. Clone the repo:
 
-Type in the command line:
-<pre>npm run dev</pre>
-And browse the site.
+```bash
+git clone git@github.com:VeronicaOS/Holidaze.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+### Running
+
+To run the app, run the following commands:
+
+```bash
+npm run start
+```
+
+## Contributing
+
+If you would like to contrubute to my project please make sure to create a new branch, push changes and open a pull request so I can review the code.
 
 ## Contact
 
-My email address:
-
-```bash
-verols51029@stud.noroff.no
-```
+[My LinkedIn page](https://www.linkedin.com/in/veronica-olsen-svensson-b4750b337/)
